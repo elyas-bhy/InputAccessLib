@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
 import android.content.Intent;
 import android.provider.Settings;
+import android.view.ActionMode;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -166,6 +167,27 @@ public class InputAccess {
 
 			public boolean dispatchKeyEvent(KeyEvent event) {
 				return cb.dispatchKeyEvent(event);
+			}
+
+			public boolean dispatchGenericMotionEvent(MotionEvent event) {
+				return cb.dispatchGenericMotionEvent(event);
+			}
+
+			public boolean dispatchKeyShortcutEvent(KeyEvent event) {
+				return cb.dispatchKeyShortcutEvent(event);
+			}
+
+			public void onActionModeFinished(ActionMode mode) {
+				cb.onActionModeFinished(mode);
+			}
+
+			public void onActionModeStarted(ActionMode mode) {
+				cb.onActionModeStarted(mode);
+			}
+
+			public ActionMode onWindowStartingActionMode(
+					android.view.ActionMode.Callback callback) {
+				return cb.onWindowStartingActionMode(callback);
 			}
 		});
 	}
